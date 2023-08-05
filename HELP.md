@@ -1,19 +1,33 @@
-# Getting Started
+## Тестовое задание №1 - Автоматизация учета склада носков
 
-### Reference Documentation
+Реализовано приложение для автоматизации учёта носков на складе магазина. 
 
-For further reference, please consider the following sections:
+**Кладовщик имеет возможность:**
+* учесть приход и отпуск носков;
+* узнать общее количество носков определенного цвета и состава в данный момент времени.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.14/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.14/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.14/reference/htmlsinge/index.html#web)
+### POST /api/socks/income
+Регистрирует приход носков на склад.
 
-### Guides
+Параметры запроса передаются в теле запроса в виде JSON-объекта со следующими атрибутами:
 
-The following guides illustrate how to use some features concretely:
+* color — цвет носков, строка (например, black, red, yellow);
+* cottonPart — процентное содержание хлопка в составе носков, целое число от 0 до 100 (например, 30, 18, 42);
+* quantity — количество пар носков, целое число больше 0.
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+### POST /api/socks/outcome
+Регистрирует отпуск носков со склада. Здесь параметры и результаты аналогичные, но общее количество носков указанного цвета и состава не увеличивается, а уменьшается.
+
+### GET /api/socks
+Возвращает общее количество носков на складе, соответствующих переданным в параметрах критериям запроса.
+
+Параметры запроса передаются в URL:
+
+* color — цвет носков, строка;
+* operation — оператор сравнения значения количества хлопка в составе носков, одно значение из: moreThan, lessThan, equal;
+* cottonPart — значение процента хлопка в составе носков из сравнения.
+
+**Примеры запросов:**
+* /api/socks?color=red&operation=moreThan&cottonPart=90 — возвращает общее количество красных носков с долей хлопка более 90%;
+* /api/socks?color=black&operation=lessThan?cottonPart=10 — возвращает общее количество черных носков с долей хлопка менее 10%.
 

@@ -14,8 +14,8 @@ public class SocksEntity {
     @Column(nullable = false, length = 32)
     private String color;
 
-    @Column(nullable = false)
-    private byte cotton_part;
+    @Column(name = "cotton_part", nullable = false)
+    private byte cottonPart;
 
     @Column(nullable = false)
     private long quantity;
@@ -36,12 +36,12 @@ public class SocksEntity {
         this.color = color;
     }
 
-    public byte getCotton_part() {
-        return cotton_part;
+    public byte getCottonPart() {
+        return cottonPart;
     }
 
-    public void setCotton_part(byte cotton_part) {
-        this.cotton_part = cotton_part;
+    public void setCottonPart(byte cottonPart) {
+        this.cottonPart = cottonPart;
     }
 
     public long getQuantity() {
