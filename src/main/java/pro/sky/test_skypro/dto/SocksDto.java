@@ -3,7 +3,7 @@ package pro.sky.test_skypro.dto;
 public class SocksDto {
     private String color;
     private byte cottonPart;
-    private long quantity;
+    private Long quantity;
 
     public String getColor() {
         return color;
@@ -21,11 +21,11 @@ public class SocksDto {
         this.cottonPart = cottonPart;
     }
 
-    public long getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 }

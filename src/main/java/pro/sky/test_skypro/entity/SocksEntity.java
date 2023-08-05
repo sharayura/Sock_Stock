@@ -18,7 +18,7 @@ public class SocksEntity {
     private byte cottonPart;
 
     @Column(nullable = false)
-    private long quantity;
+    private Long quantity;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class SocksEntity {
         this.cottonPart = cottonPart;
     }
 
-    public long getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 }
