@@ -2,6 +2,10 @@ package pro.sky.test_skypro.entity;
 
 import javax.persistence.*;
 
+/**
+ * Класс для хранения типа и количества носков на складе магазина
+ * @author Sharapov Yuri
+ */
 @Entity
 @Table(name = "socks", uniqueConstraints =
         { @UniqueConstraint(columnNames = { "color", "cotton_part" })
