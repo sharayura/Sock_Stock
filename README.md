@@ -4,13 +4,12 @@
 ### В проекте используются:
 
 * Backend:
-    - Java 11
+    - Java 17
     - Maven
     - Spring Boot
     - Spring Web
     - Spring Data
     - Spring JPA
-    - GIT
     - REST
     - Swagger
 * SQL:
